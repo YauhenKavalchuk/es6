@@ -1,56 +1,42 @@
-// let, const, var
+// spread, REST
 // ---------------
 
-// Define
-// let - var
-// const - constant
-// var - deprecated
-
-// Scope
+// Example 1 - array
 /*
-if(true) {
-  const a = 'ES5';
+const num1 = [1,2,3,4];
+const num2 = [5,6,7,8];
+//Array.prototype.push.apply(num1, num2);
+console.log([...num1, num2]);
+*/
+// Example 2 - object
+/*
+const A = {
+  a: 'default',
+  b: 'just_test'
+};
+const B = {
+  a: 'value_from_b'
 }
-console.log(a);
+//var c = Object.assign(B, A);
+let c = {
+  ...A,
+  ...B
+}
+console.log(c);
 */
+// Example 3 - function
+/*
+const arr = [1,2,3];
+function sum(a,b,c) {
+  return a+b+c;
+}
+// sum(arr[0], arr[1], arr[2]);
+// sum.apply(null, arr);
+console.log(sum(...arr));
+*/
+// Example 1 - REST
 
-// Hoisting
-/*
-var b = undefind;
-console.log(b);
-b = 5;
-*/
-// Example
-/*
-var buttons = document.querySelectorAll('button');
-for (var i = 0; i < buttons.length; i++) {
-  var button = buttons[i];
-  button.innerText = i;
-  button.onclick = function(x) {
-    return function() {
-      console.log(x);
-    };
-  }(i);
-};
-*/
-/*
-var buttons = document.querySelectorAll('button');
-for (let i = 0; i < buttons.length; i++) {
-  var button = buttons[i];
-  button.innerText = i;
-  button.onclick = function() {
-    console.log(i);
-  };
-};
-*/
-// const
-const ARR = [1,2,3,4,5];
-ARR.push(6);
-console.log(ARR);
-
-const OBJ = {
-  es: 'ES6'
-};
-OBJ.es = 'ES7)))';
-OBJ = 'str';
-console.log(OBJ);
+function res(arg, arg2, ...REST) {
+  console.log(arg, arg2, REST);
+}
+res(1,2,3,4,5,6,7);

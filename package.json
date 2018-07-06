@@ -4,11 +4,12 @@
   "description": "",
   "author": "Yauhen Kavalchuk",
   "scripts": {
-    "watch": "babel app/js -d app/dist --presets env -w"
+    "watch": "babel app/js -d app/dist --plugins transform-object-rest-spread --presets env -w"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0"
   }
 }
