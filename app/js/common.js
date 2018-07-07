@@ -1,42 +1,63 @@
-// spread, REST
+// Template string
 // ---------------
 
-// Example 1 - array
-/*
-const num1 = [1,2,3,4];
-const num2 = [5,6,7,8];
-//Array.prototype.push.apply(num1, num2);
-console.log([...num1, num2]);
-*/
-// Example 2 - object
-/*
-const A = {
-  a: 'default',
-  b: 'just_test'
-};
-const B = {
-  a: 'value_from_b'
-}
-//var c = Object.assign(B, A);
-let c = {
-  ...A,
-  ...B
-}
-console.log(c);
-*/
-// Example 3 - function
-/*
-const arr = [1,2,3];
-function sum(a,b,c) {
-  return a+b+c;
-}
-// sum(arr[0], arr[1], arr[2]);
-// sum.apply(null, arr);
-console.log(sum(...arr));
-*/
-// Example 1 - REST
+// Syntax
+// `${dynamic_value}`;
 
-function res(arg, arg2, ...REST) {
-  console.log(arg, arg2, REST);
+// Example 1 - string
+/*
+function greet(name) {
+  //console.log('Hello ' + name + '!');
+  console.log(`Hello ${name}!`);
 }
-res(1,2,3,4,5,6,7);
+greet('Max');
+*/
+// Example 2 - URL API string
+/*
+const URL = '/api';
+let path1 = 'test';
+let path2 = 'test2';
+let path3 = 'test3';
+
+//const API_URL = URL + '/' + path1 + '/' + path2 + '/' + path3;
+const API_URL = `${URL}/${path1}/${path2}/${path3}`;
+console.log(API_URL);
+*/
+// Example 3 - Multiple string
+/*
+function emailMessage(name, mail, status) {
+  return `
+    Hello ${name},
+    Your email ${mail} has been ${status}!
+    Thank you for subscription!
+  `
+}
+console.log(emailMessage('Jack', 'jack@mail.com', 'approved'));
+*/
+// Example 4 - Template
+/*
+generate() {
+    return `
+    <li class="news">
+      <a href="${this.url}" target="_blank" class="news__link">
+        <figure class="news__figure">
+          <img src="${this.urlToImage}" alt="${this.title}" class="news__image">
+          <figcaption class="news__description">
+            <h1 class="news__title">${this.title}</h1>
+            <p class="news__text">${this.description}</p>
+            <span class="news__date">${new Date(this.publishedAt).toLocaleDateString()}</span>
+            <cite class="news__author">${this.author}</cite>
+          </figcaption>
+        </figure>
+      </a>
+    </li>`;
+  }
+*/
+// Example 5 - Tagging
+
+const name = 'Jack';
+console.log(toUppercase`Hello ${name}!`);
+function toUppercase(litArr, value) {
+  console.log(litArr, value);
+  return litArr[0] + value.toUpperCase() + litArr[1];
+}
