@@ -1,18 +1,37 @@
-// for...of
+// Objects
 // ---------------
 
-const names = ['Jack', 'Max', 'Leo'];
+let name = 'Jack';
+let sex = 'male';
+let age = 20;
 
-for(let name in names) {
-  //console.log(name);
+let person = {
+  name,
+  sex,
+  age,
+  greet() {
+    console.log(`Hello ${this.name}`);
+  },
+  get:password() {
+    return this.name + this.age;
+  }
 }
 
+person.name;
+person['name'];
 
-for(let index in names) {
-  //console.log(names[index]);
-}
+let firstName = 'name';
+person[firstName];
+
+// person = {
+//   [firstName]: 'Max'
+// }
+
+// Object.defineProperty(person, 'password', {
+//   get: function() {
+//     return this.name + this.age;
+//   }
+// })
 
 
-for(let name of names) {
-  console.log(name);
-}
+console.log(person);
