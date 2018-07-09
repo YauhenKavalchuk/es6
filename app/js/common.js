@@ -1,37 +1,28 @@
-// Objects
+// Class
 // ---------------
 
-let name = 'Jack';
-let sex = 'male';
-let age = 20;
+class Task {
+  constructor(title = Task.getDefaultTitle(), isCompleted = false) {
+    this.title = title,
+    this._isCompleted = isCompleted,
+    Task.counter += 1
+  }
 
-let person = {
-  name,
-  sex,
-  age,
-  greet() {
-    console.log(`Hello ${this.name}`);
-  },
-  get:password() {
-    return this.name + this.age;
+  static getDefaultTitle() {
+    return 'Title text';
+  }
+
+  completed() {
+    this.isCompleted = true;
+  }
+
+  get isCompleted() {
+    return this._isCompleted === true ? 'task is completed' : 'task is not completed'
   }
 }
 
-person.name;
-person['name'];
+Task.counter = 0;
 
-let firstName = 'name';
-person[firstName];
+let task = new Task('Learn ES6', false);
 
-// person = {
-//   [firstName]: 'Max'
-// }
-
-// Object.defineProperty(person, 'password', {
-//   get: function() {
-//     return this.name + this.age;
-//   }
-// })
-
-
-console.log(person);
+console.log(task.isCompleted, task._isCompleted);
