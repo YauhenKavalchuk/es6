@@ -1,47 +1,26 @@
-// Inheritance
+// Array destructuring
 // ---------------
 
-class Task {
-  constructor(title = '') {
-    this.title = title,
-    this.isCompleted = false
-  }
+//const people = ['Jack', 'Max', 'Leo'];
 
-  completed() {
-    this.isCompleted = true;
-  }
+// let jack = people[0];
+// let max = people[1];
+// let leo = people[2];
+
+// let [jack, max, leo] = ['Jack', 'Max', 'Leo']];
+
+// console.log(jack, max, leo);
+
+// const rate = [1,50,100, [1000, 2000]];
+
+// let [low, middle, high, [higher, sup]] = rate;
+
+// console.log(low, middle, high, higher, sup);
+
+function calculate([a,b]) {
+  return [a,b];
 }
 
-class SubTask extends Task {
-  constructor(title) {
-    super(title)
-  }
+let [a, b] = calculate([1, 10]);
 
-  completed() {
-    super.completed();
-    console.log(`task ${this.title} is completed!`)
-  }
-}
-
-let task = new Task('Learn ReactJS');
-let subTask = new SubTask('Learn ES6');
-
-task.completed();
-subTask.completed();
-
-console.log(task);
-console.log(subTask);
-
-//class declaration
-class Task {};
-
-//class expression
-let Task = class Task {};
-
-
-
-
-
-
-
-//
+console.log(a,b);
