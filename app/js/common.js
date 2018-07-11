@@ -1,23 +1,17 @@
-// Object destructuring
+// Symbols
 // ---------------
+
+// let symbol = Symbol.for('mySymbol');
+// let symbolName = Symbol.keyFor(symbol)
+// console.log(symbolName);
+
 
 let person = {
   name: 'Jack',
   age: 20,
-  address: {
-    city: 'Minsk'
-  }
+  [Symbol.for('password')]: 'Jack20',
+  [Symbol.for('nickname')]: 'Freeman'
 }
 
-//let {name = 'Max',age = 20} = {};
-//let { name: personName, age: personAge } = person;
-//let { address: { city = 'Brest' } } = person;
-//console.log(city);
-
-function getData({ name, age }) {
-  //console.log(name, age);
-  return { name, age }
-}
-
-let {name, age} = getData(person);
-console.log(name, age);
+// console.log(person[Symbol.for('password')]);
+console.log(Object.getOwnPropertySymbols(person));
