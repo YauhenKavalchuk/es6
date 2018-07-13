@@ -4,7 +4,7 @@
   "description": "",
   "author": "Yauhen Kavalchuk",
   "scripts": {
-    "watch": "babel app/js -d app/dist --plugins transform-object-rest-spread --presets env -w"
+    "watch": "watchify app/js/common.js -o app/dist/common.js -v"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
