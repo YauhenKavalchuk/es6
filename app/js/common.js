@@ -1,50 +1,38 @@
-// Async/Await
+// Iterators
 // ---------------
 /*
-const fetchData = () => Promise.resolve({
-  data: ['Jack', 'Max', 'Leo']
-})
+let names = ['jack', 'max', 'leo'];
 
-const getNamesData = () => {
-  fetchData()
-    .then(data => {
-      console.log(data);
-      return 'done';
-    })
+for (let name of names) {
+  console.log(name);
 }
-
-const getNamesData2 = async () => {
-  console.log(await fetchData());
-  return 'done';
-}
-
-getNamesData();
-getNamesData2();
-console.log(getNamesData2());
-
-const fetchData = () => Promise.reject('some error...');
-const getNamesData = async () => {
-  try {
-    console.log(await fetchData());
-  } catch(error) {
-    console.log(error);
-  }
-}
-getNamesData();
 */
 
-const load = () => {
-  Promise.resolve(5)
-    .then(a => {
-      Promise.resolve(10)
-        .then(b => console.log(a+b))
-    })
+let generateNumbers = {
+  start: 1,
+  end: 10
 }
-load();
 
-const load2 = async () =>{
-  const a = await Promise.resolve(5);
-  const b = await Promise.resolve(10);
-  console.log(a+b)
+generateNumbers[Symbol.iterator] = function() {
+  let current = this.start;
+  let last = this.end;
+
+  return {
+    next() {
+      if(current <= last) {
+        return {
+          done: false,
+          value: current++
+        }
+      } else {
+        return {
+          done: true
+        }
+      }
+    }
+  }
 }
-load2();
+
+for (let number of generateNumbers) {
+  console.log(number);
+}
