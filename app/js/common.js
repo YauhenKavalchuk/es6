@@ -1,57 +1,43 @@
-// Set & Map
+// Modules
 // ---------------
+// Variables
+export let one = 1;
 
-// Map
-/*
-let map = new Map();
+let two = 2;
+let three = 3;
+export { two, three };
 
-map
-  .set('str', 'string')
-  .set(1, 'number')
-  .set(true, 'boolean');
+// Class
+class Person {
+  constructor(name) {
+    this.name = name
+  }
+}
 
-console.log(map.get(1));
-console.log(map.get(true));
-console.log(map.size);
-*/
+// Function
+function sayHello() {
+  console.log('hello!')
+}
 
-// let map = new Map([
-//   ['str', 'string'],
-//   [1, 'number'],
-//   [true, 'boolean']
-// ])
+export { Person, sayHello }
 
-// console.log(map.get(1));
-// console.log(map.get(true));
-// console.log(map.size);
-// console.log(map.has(1));
-// console.log(map.delete(1));
-// console.log(map.size);
-// console.log(map.clear());
-// console.log(map.size);
-// Iteration
-// keys(), values(), entries()
+// Rename
+export { one as once, two as twice };
 
+//Import
+import { one, two } from './file.js';
 
-// Set
-let jack = {name: 'Jack'};
-let max = {name: 'Max'};
-let leo = {name: 'Leo'};
+// Rename Import
+import { one as num1, two as num2 } from './file.js';
 
-let users = new Set();
+// One Import
+import * as numbers from './file.js';
 
-users
-  .add(jack)
-  .add(max)
-  .add(leo)
-  .add(jack)
-  .add(max)
-console.log(users.size);
-users.forEach(user =>console.log(user));
-//Methods
-//add()
-//delete(item)
-//has(item)
-//clear()
+// default export
+export default class Person {
+  constructor(name) {
+    this.name = name
+  }
+}
 
-// WeackMap & WeackSet
+import Person from './file.js';
