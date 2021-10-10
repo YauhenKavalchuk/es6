@@ -25,8 +25,8 @@
 - Клонируйте репозиторий: `git clone https://github.com/YauhenKavalchuk/es6.git`
 - Перейдите в папку с проектом `cd es6`
 - Перейдите в нужную ветку соответствующую уроку:
-  - `git checkout lesson_01`
-  - `git checkout lesson_02`
+  - `git checkout lesson_1`
+  - `git checkout lesson_2`
   - `git checkout lesson_10` и т.д.
 - Установите зависимости: `npm install`
 - Запустите проект: `npm run watch`
